@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
@@ -25,7 +26,8 @@ public class ChessFrame extends JFrame{
 		
 		public void paintComponent(Graphics g) {
 			
-			int sqSize=20;
+			int sqSize=this.getHeight()/ROWS;
+			
 			
 			for(int i=0;i<ROWS;i++) {
 				
@@ -33,8 +35,11 @@ public class ChessFrame extends JFrame{
 					
 					int x=j*sqSize;
 					int y=i*sqSize;
-					
-					g.drawRect(x, y, sqSize, sqSize);
+					g.setColor(Color.CYAN);
+					g.fillRect(x, y, sqSize, sqSize);
+					g.setColor(Color.orange);
+					if((i+j)%2==0)
+						g.fillRect(x, y, sqSize, sqSize);
 				}
 			}
 			
