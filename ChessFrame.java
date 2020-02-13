@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,6 +25,19 @@ public class ChessFrame extends JFrame{
 		
 		private static final int ROWS=8;
 		private static final int COLUMNS=8;
+		private int xCoord=50;
+		private int yCoord=50;
+		
+		
+		public void setXCoord(int x) {
+			xCoord=x;
+			
+		}
+		
+		public void setYCoord(int y) {
+			yCoord=y;
+		}
+		
 		
 		public void paintComponent(Graphics g) {
 			
@@ -43,7 +58,31 @@ public class ChessFrame extends JFrame{
 				}
 			}
 			
+			g.setColor(Color.RED);
+			g.fillOval(xCoord, yCoord, 40, 40);
+			
 		}
+		
+	}
+	class MouseClickListener implements MouseListener{
+		
+		public void MouseClicked(MouseEvent e) {
+			
+			int x=e.getX();
+			int y=e.getY();
+			panel.setXCoord(x);
+			panel.setYCoord(y);
+			panel.repaint();
+			
+		}
+		
+		public void MousePressed(MouseEvent e) { }
+		
+		public void MouseReleased(MouseEvent e) { }
+		
+		public void MouseEntered(MouseEvent e) { }
+		
+		public void MouseExited(MouseEvent e) { }
 		
 	}
 }
