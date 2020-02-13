@@ -14,6 +14,8 @@ public class ChessFrame extends JFrame{
 		
 		panel=new BoardPanel();
 		this.setContentPane(panel);
+		MouseClickListener listener=new MouseClickListener();
+		panel.addMouseListener(listener);
 		
 		this.setVisible(true);
 		this.setSize(400, 400);
@@ -66,23 +68,27 @@ public class ChessFrame extends JFrame{
 	}
 	class MouseClickListener implements MouseListener{
 		
-		public void MouseClicked(MouseEvent e) {
+		public void mouseClicked(MouseEvent e) {
 			
 			int x=e.getX();
 			int y=e.getY();
-			panel.setXCoord(x);
-			panel.setYCoord(y);
+			panel.setXCoord(x-20);
+			panel.setYCoord(y-20);
 			panel.repaint();
 			
 		}
 		
-		public void MousePressed(MouseEvent e) { }
+		public void mousePressed(MouseEvent e) { }
 		
-		public void MouseReleased(MouseEvent e) { }
+		public void mouseReleased(MouseEvent e) { }
 		
-		public void MouseEntered(MouseEvent e) { }
+		public void mouseEntered(MouseEvent e) { }
 		
-		public void MouseExited(MouseEvent e) { }
+		public void mouseExited(MouseEvent e) { }
+
+		
+
+		
 		
 	}
 }
